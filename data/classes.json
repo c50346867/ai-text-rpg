@@ -1,0 +1,196 @@
+[
+    {
+        "id": "fighter",
+        "name": "战士",
+        "name_en": "Fighter",
+        "description": "战争大师，精通各种武器和防具。在前线冲锋陷阵，是最可靠的战斗伙伴。",
+        "primary_stat": "strength",
+        "hit_dice": "d10",
+        "saving_throws": ["strength", "constitution"],
+        "proficiencies": {
+            "armor": ["所有护甲", "盾牌"],
+            "weapons": ["所有军用武器", "所有简易武器"],
+            "tools": ["自选一项工具"]
+        },
+        "skills": ["运动", "驯兽", "洞察", "威吓", "历史", "感知"],
+        "skills_choice_count": 2,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "战斗风格", "description": "选择一种战斗风格获得加值", "choices": ["巨武器战斗", "双武器战斗", "防御", "箭术", "防护"]},
+                {"name": "回气", "description": "每日一次，以一个附赠动作恢复1d10+等级生命值", "cooldown": "short_rest"}
+            ],
+            "2": [{"name": "行动如潮", "description": "额外进行一次动作（短休后恢复）"}],
+            "3": [
+                {"name": "子职选择", "description": "选择战士子职", "choices": ["勇猛武者", "弓箭士", "圣骑士", "魔法骑士"]}
+            ],
+            "5": [{"name": "额外攻击", "description": "攻击动作时可以进行两次攻击"}],
+            "11": [{"name": "额外攻击(2)", "description": "攻击动作时可以进行三次攻击"}]
+        }
+    },
+    {
+        "id": "wizard",
+        "name": "法师",
+        "name_en": "Wizard",
+        "description": "奥术智慧的追求者，通过研习法术书施展强大的魔法。智力是他们的核心力量。",
+        "primary_stat": "intelligence",
+        "hit_dice": "d6",
+        "saving_throws": ["intelligence", "wisdom"],
+        "proficiencies": {
+            "armor": ["无"],
+            "weapons": ["匕首", "飞镖", "投石索", "长棍", "轻弩"],
+            "tools": ["自选一项工具"]
+        },
+        "spell_slots": {
+            "1": {"1st": 2},
+            "2": {"1st": 3},
+            "3": {"1st": 4, "2nd": 2},
+            "4": {"1st": 4, "2nd": 3},
+            "5": {"1st": 4, "2nd": 3, "3rd": 2}
+        },
+        "skills": ["奥秘", "历史", "洞察", "调查", "医药", "宗教"],
+        "skills_choice_count": 2,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "施法", "description": "使用智力作为施法关键属性，通过法术书准备法术"},
+                {"name": "奥术恢复", "description": "短休后恢复部分法术位"}
+            ],
+            "2": [{"name": "学派专精", "description": "选择八个魔法学派之一获得专精加成"}],
+            "3": [{"name": "法术等级提升", "description": "获得2环法术位"}]
+        }
+    },
+    {
+        "id": "ranger",
+        "name": "游侠",
+        "name_en": "Ranger",
+        "description": "荒野的守护者，追踪猎物的专家。在自然环境中无往不利。",
+        "primary_stat": "dexterity",
+        "hit_dice": "d10",
+        "saving_throws": ["strength", "dexterity"],
+        "proficiencies": {
+            "armor": ["轻甲", "中甲", "盾牌"],
+            "weapons": ["所有军用武器", "所有简易武器"],
+            "tools": ["自选一项工具"]
+        },
+        "spell_slots": {
+            "2": {"1st": 2},
+            "3": {"1st": 3},
+            "5": {"1st": 4, "2nd": 2}
+        },
+        "skills": ["运动", "洞察", "调查", "自然", "感知", "潜行", "生存"],
+        "skills_choice_count": 3,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "宿敌", "description": "选择一类宿敌，对其攻击和追踪检定获得加值"},
+                {"name": "自然探索者", "description": "在偏好地形中旅行获得优势"}
+            ],
+            "2": [
+                {"name": "战斗风格", "description": "选择箭术或双武器战斗"},
+                {"name": "施法", "description": "获得有限的自然法术"}
+            ],
+            "3": [
+                {"name": "子职选择", "description": "选择游侠子职", "choices": ["猎人", "兽王", "幽暗追踪者"]}
+            ],
+            "5": [{"name": "额外攻击", "description": "攻击动作时可以进行两次攻击"}]
+        }
+    },
+    {
+        "id": "rogue",
+        "name": "盗贼",
+        "name_en": "Rogue",
+        "description": "阴影中的舞者，精通潜行和偷袭。利用敏捷和智慧在危险中取胜。",
+        "primary_stat": "dexterity",
+        "hit_dice": "d8",
+        "saving_throws": ["dexterity", "intelligence"],
+        "proficiencies": {
+            "armor": ["轻甲"],
+            "weapons": ["手弩", "长剑", "短剑", "匕首", "飞镖", "投石索", "短棍"],
+            "tools": ["盗贼工���"]
+        },
+        "sneak_attack": {"1": "1d6", "3": "2d6", "5": "3d6", "7": "4d6", "9": "5d6"},
+        "skills": ["杂技", "运动", "欺骗", "洞察", "威吓", "调查", "感知", "表演", "说服", "巧手", "潜行"],
+        "skills_choice_count": 4,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "专家掌控", "description": "选择一个技能熟练项，获得双倍熟练加值"},
+                {"name": "偷袭", "description": "在优势或队友邻近时额外造成偷袭伤害"},
+                {"name": "盗贼黑话", "description": "懂得盗贼间的暗语和密语"}
+            ],
+            "2": [
+                {"name": "狡猾动作", "description": "战斗中可使用附赠动作进行疾走、撤离或躲藏"}
+            ],
+            "3": [
+                {"name": "子职选择", "description": "选择盗贼子职", "choices": ["刺客", "诡术师", "侦查员"]}
+            ],
+            "5": [{"name": "直觉闪避", "description": "对抗可见来源伤害时只受一半伤害"}]
+        }
+    },
+    {
+        "id": "cleric",
+        "name": "牧师",
+        "name_en": "Cleric",
+        "description": "神明的代言人，通过信仰施展神圣魔法。既能治疗队友也能击退亡灵。",
+        "primary_stat": "wisdom",
+        "hit_dice": "d8",
+        "saving_throws": ["wisdom", "charisma"],
+        "proficiencies": {
+            "armor": ["轻甲", "中甲", "盾牌"],
+            "weapons": ["所有简易武器"],
+            "tools": ["自选一项工具"]
+        },
+        "spell_slots": {
+            "1": {"1st": 2},
+            "2": {"1st": 3},
+            "3": {"1st": 4, "2nd": 2},
+            "4": {"1st": 4, "2nd": 3},
+            "5": {"1st": 4, "2nd": 3, "3rd": 2}
+        },
+        "skills": ["历史", "洞察", "医药", "说服", "宗教"],
+        "skills_choice_count": 2,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "施法", "description": "使用感知作为施法关键属性"},
+                {"name": "神圣领域", "description": "选择神祇领域获得领域法术和能力"},
+                {"name": "引导神力", "description": "每日一次，释放强力的神圣能量"}
+            ],
+            "2": [{"name": "引导神力（驱散亡灵）", "description": "将不死生物驱离或摧毁"}],
+            "3": [{"name": "法术等级提升", "description": "获得2环法术位"}],
+            "5": [{"name": "毁灭打击", "description": "近战攻击时额外附加1d8神圣伤害"}]
+        }
+    },
+    {
+        "id": "monk",
+        "name": "武僧",
+        "name_en": "Monk",
+        "description": "气功修炼者，将自己的身体锻造成终极武器。以速度和连击闻名。",
+        "primary_stat": "dexterity",
+        "hit_dice": "d8",
+        "saving_throws": ["strength", "dexterity"],
+        "proficiencies": {
+            "armor": ["无"],
+            "weapons": ["所有简易武器", "短剑", "长剑（双手持用）"],
+            "tools": ["自选一项工具"]
+        },
+        "ki_points": {"1": 2, "2": 3, "3": 5, "5": 8},
+        "skills": ["杂技", "运动", "历史", "洞察", "宗教", "潜行"],
+        "skills_choice_count": 2,
+        "class_abilities_levels": {
+            "1": [
+                {"name": "无甲防御", "description": "不穿甲时，AC=10+敏捷调整+感知调整"},
+                {"name": "武艺", "description": "徒手攻击和武僧武器造成更高伤害"},
+                {"name": "气", "description": "获得气点数，可用来释放特殊技巧"}
+            ],
+            "2": [
+                {"name": "疾风连击", "description": "消耗1点气，攻击后可额外进行一次徒手攻击"},
+                {"name": "未风先动", "description": "敏捷和感知检定获得优势"}
+            ],
+            "3": [
+                {"name": "子职选择", "description": "选择武僧宗派", "choices": ["四象宗", "暗影宗", "散打宗"]},
+                {"name": "偏折飞弹", "description": "反应动作减少远程攻击伤害"}
+            ],
+            "5": [
+                {"name": "震慑拳", "description": "消耗1点气，徒手攻击可使目标震慑"},
+                {"name": "额外攻击", "description": "攻击动作时可以进行两次攻击"}
+            ]
+        }
+    }
+]

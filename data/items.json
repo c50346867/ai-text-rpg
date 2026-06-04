@@ -1,0 +1,276 @@
+[
+    {
+        "id": "iron_sword",
+        "name": "铁剑",
+        "name_en": "Iron Sword",
+        "type": "weapon",
+        "subtype": "近战武器",
+        "rarity": "普通",
+        "description": "一柄做工扎实的铁剑，是冒险者最常见的武器。",
+        "value": 15,
+        "weight": 3,
+        "equippable": true,
+        "slot": "weapon",
+        "properties": {
+            "damage_dice": "1d8",
+            "damage_type": "挥砍",
+            "attack_bonus": 0,
+            "range": null,
+            "requirements": {"strength": 0}
+        },
+        "effects": [],
+        "special": ""
+    },
+    {
+        "id": "longbow",
+        "name": "长弓",
+        "name_en": "Longbow",
+        "type": "weapon",
+        "subtype": "远程武器",
+        "rarity": "普通",
+        "description": "一把高大的木弓，需要相当的臂力才能拉开。",
+        "value": 50,
+        "weight": 2,
+        "equippable": true,
+        "slot": "weapon",
+        "properties": {
+            "damage_dice": "1d8",
+            "damage_type": "穿刺",
+            "attack_bonus": 0,
+            "range": "150/600",
+            "requirements": {"strength": 0}
+        },
+        "effects": [],
+        "special": "双手持用"
+    },
+    {
+        "id": "leather_armor",
+        "name": "皮甲",
+        "name_en": "Leather Armor",
+        "type": "armor",
+        "subtype": "轻甲",
+        "rarity": "普通",
+        "description": "鞣制过的硬皮甲，提供基础防护而不影响灵活性。",
+        "value": 10,
+        "weight": 10,
+        "equippable": true,
+        "slot": "armor",
+        "properties": {
+            "armor_class": 11,
+            "dexterity_bonus_limit": null,
+            "strength_requirement": 0,
+            "stealth_disadvantage": false
+        },
+        "effects": [],
+        "special": ""
+    },
+    {
+        "id": "chain_mail",
+        "name": "链甲",
+        "name_en": "Chain Mail",
+        "type": "armor",
+        "subtype": "重甲",
+        "rarity": "普通",
+        "description": "由金属环编织而成的锁子甲，提供良好的防护。",
+        "value": 75,
+        "weight": 55,
+        "equippable": true,
+        "slot": "armor",
+        "properties": {
+            "armor_class": 16,
+            "dexterity_bonus_limit": 0,
+            "strength_requirement": 13,
+            "stealth_disadvantage": true
+        },
+        "effects": [],
+        "special": ""
+    },
+    {
+        "id": "healing_potion",
+        "name": "治疗药水",
+        "name_en": "Healing Potion",
+        "type": "potion",
+        "subtype": "消耗品",
+        "rarity": "普通",
+        "description": "瓶中装��红色的液体，散发着微弱的���芒。饮用后恢复生命值。",
+        "value": 50,
+        "weight": 0.5,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [
+            {"type": "heal", "value": "2d4+2", "target": "self"}
+        ],
+        "special": "战斗中可以用附赠动作饮用"
+    },
+    {
+        "id": "mana_potion",
+        "name": "法力药水",
+        "name_en": "Mana Potion",
+        "type": "potion",
+        "subtype": "消耗品",
+        "rarity": "普通",
+        "description": "蓝色的液体中闪烁着魔力结晶，饮用后恢复法力。",
+        "value": 75,
+        "weight": 0.5,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [
+            {"type": "restore_mana", "value": "1d4+1", "target": "self"}
+        ],
+        "special": ""
+    },
+    {
+        "id": "fireball_scroll",
+        "name": "火球术卷轴",
+        "name_en": "Fireball Scroll",
+        "type": "scroll",
+        "subtype": "消耗品",
+        "rarity": "稀有",
+        "description": "封印着火球术的魔法卷轴，撕开后释放毁灭性的火焰。",
+        "value": 200,
+        "weight": 0.1,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [
+            {"type": "spell", "spell_name": "火球术", "level": 3, "damage": "8d6", "damage_type": "火焰", "area": "20英尺球体", "save_dc": 15}
+        ],
+        "special": "无需法术位施法"
+    },
+    {
+        "id": "ring_of_protection",
+        "name": "防护戒指",
+        "name_en": "Ring of Protection",
+        "type": "accessory",
+        "subtype": "饰品",
+        "rarity": "稀有",
+        "description": "一枚朴素的银戒指，佩戴后能感到一股无形的守护之力。",
+        "value": 500,
+        "weight": 0.1,
+        "equippable": true,
+        "slot": "accessory",
+        "properties": {},
+        "effects": [
+            {"type": "ac_bonus", "value": 1, "target": "self"},
+            {"type": "saving_throw_bonus", "value": 1, "target": "self"}
+        ],
+        "special": ""
+    },
+    {
+        "id": "amulet_of_health",
+        "name": "健康护符",
+        "name_en": "Amulet of Health",
+        "type": "accessory",
+        "subtype": "饰品",
+        "rarity": "稀有",
+        "description": "翡翠色的护符，佩戴者的体质得到极大增强。",
+        "value": 800,
+        "weight": 0.2,
+        "equippable": true,
+        "slot": "accessory",
+        "properties": {},
+        "effects": [
+            {"type": "stat_bonus", "stat": "constitution", "value": 4, "target": "self"}
+        ],
+        "special": "中空设计，可以隐藏小物件"
+    },
+    {
+        "id": "flame_tongue_sword",
+        "name": "焰舌剑",
+        "name_en": "Flame Tongue Sword",
+        "type": "weapon",
+        "subtype": "近战武器",
+        "rarity": "珍稀",
+        "description": "剑身上永远燃��不灭的火焰，触碰之物皆被焚毁。",
+        "value": 2500,
+        "weight": 3,
+        "equippable": true,
+        "slot": "weapon",
+        "properties": {
+            "damage_dice": "1d8+2d6",
+            "damage_type": "挥砍+火焰",
+            "attack_bonus": 0,
+            "range": null,
+            "requirements": {"strength": 0}
+        },
+        "effects": [
+            {"type": "bonus_damage", "damage": "2d6", "damage_type": "火焰", "target": "enemy"}
+        ],
+        "special": "照亮30英尺范围"
+    },
+    {
+        "id": "cloak_of_invisibility",
+        "name": "隐形披风",
+        "name_en": "Cloak of Invisibility",
+        "type": "armor",
+        "subtype": "披风",
+        "rarity": "传说",
+        "description": "用星界织线编织的披风，戴上兜帽后穿戴者完全隐形。",
+        "value": 10000,
+        "weight": 1,
+        "equippable": true,
+        "slot": "cloak",
+        "properties": {
+            "armor_class": 0,
+            "dexterity_bonus_limit": null,
+            "strength_requirement": 0,
+            "stealth_disadvantage": false
+        },
+        "effects": [
+            {"type": "invisibility", "condition": "hood_up", "target": "self"}
+        ],
+        "special": "穿上后隐形，掀开兜帽显形。隐形时攻击判定有优势，但攻击後显形"
+    },
+    {
+        "id": "torch",
+        "name": "火把",
+        "name_en": "Torch",
+        "type": "misc",
+        "subtype": "工具",
+        "rarity": "普通",
+        "description": "浸过树脂的火把，可以点燃照亮黑暗。",
+        "value": 1,
+        "weight": 1,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [
+            {"type": "light", "range": 20, "target": "area"}
+        ],
+        "special": "也可作为临时武器使用（1d4火焰伤害）"
+    },
+    {
+        "id": "rope",
+        "name": "麻绳",
+        "name_en": "Rope",
+        "type": "misc",
+        "subtype": "工具",
+        "rarity": "普通",
+        "description": "50英尺长的麻绳，牢固可靠。",
+        "value": 1,
+        "weight": 5,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [],
+        "special": "可承受500磅重量"
+    },
+    {
+        "id": "backpack",
+        "name": "背包",
+        "name_en": "Backpack",
+        "type": "misc",
+        "subtype": "容器",
+        "rarity": "普通",
+        "description": "中等大小的皮质背包，可以存放冒险必备的物品。",
+        "value": 2,
+        "weight": 2,
+        "equippable": false,
+        "slot": null,
+        "properties": {},
+        "effects": [],
+        "special": "可储存最多30磅物品"
+    }
+]

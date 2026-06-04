@@ -1,0 +1,85 @@
+[
+    {
+        "id": "human",
+        "name": "人类",
+        "name_en": "Human",
+        "description": "最 versatile 的种族，适应力极强。在各项属性上均衡发展，没有明显弱点。",
+        "traits": ["多才多艺", "不屈意志"],
+        "stat_bonuses": {"strength": 1, "dexterity": 1, "constitution": 1, "intelligence": 1, "wisdom": 1, "charisma": 1},
+        "racial_abilities": [
+            {"name": "多才多艺", "description": "获得一个额外技能熟练项", "effect": "extra_skill_proficiency"},
+            {"name": "不屈意志", "description": "每日一次，在攻击检定、属性检定或豁免检定时可以重掷", "effect": "reroll_once_per_day"}
+        ],
+        "speed": 30,
+        "languages": ["通用语", "自选一门额外语言"],
+        "size": "中型"
+    },
+    {
+        "id": "elf",
+        "name": "精灵",
+        "name_en": "Elf",
+        "description": "优雅而长寿的森林居民，拥有敏锐的感官和与自然的联系。",
+        "traits": ["敏捷", "敏锐感官", "自然亲和"],
+        "stat_bonuses": {"dexterity": 2, "intelligence": 1},
+        "racial_abilities": [
+            {"name": "敏锐感官", "description": "获得聆听、侦查技能的熟练项", "effect": "keen_senses"},
+            {"name": "自然亲和", "description": "与自然生物沟通时获得优势", "effect": "nature_affinity"},
+            {"name": "夜视", "description": "在黑暗中拥有60英尺视野", "effect": "darkvision_60ft"},
+            {"name": "睡眠免疫", "description": "免疫睡眠魔法，只需4小时冥想", "effect": "trance"}
+        ],
+        "speed": 30,
+        "languages": ["通用语", "精灵语"],
+        "size": "中型"
+    },
+    {
+        "id": "dwarf",
+        "name": "矮人",
+        "name_en": "Dwarf",
+        "description": "坚韧的山脉居民，以锻造和战斗闻名。拥有惊人的耐力和对毒素的抵抗。",
+        "traits": ["坚韧", "毒素抗性", "锻造大师"],
+        "stat_bonuses": {"constitution": 2, "strength": 1},
+        "racial_abilities": [
+            {"name": "毒素抗性", "description": "对毒素伤害有优势豁免，对毒素状态免疫", "effect": "poison_resistance"},
+            {"name": "锻造大师", "description": "使用锤类武器时获得额外熟练加值", "effect": "smith_mastery"},
+            {"name": "黑暗视觉", "description": "在黑暗中拥有120英尺视野", "effect": "darkvision_120ft"},
+            {"name": "岩石坚韧", "description": "对抗击退和推离效果时获得优势", "effect": "stone_endurance"}
+        ],
+        "speed": 25,
+        "languages": ["通用语", "矮人语"],
+        "size": "中型"
+    },
+    {
+        "id": "orc",
+        "name": "兽人",
+        "name_en": "Orc",
+        "description": "强壮而勇猛的战士种族，崇尚力量和荣誉。在战场上无人能挡。",
+        "traits": ["强壮", "凶悍", "无畏"],
+        "stat_bonuses": {"strength": 2, "constitution": 1},
+        "racial_abilities": [
+            {"name": "凶悍", "description": "当生命值降至一半以下时，攻击伤害+2", "effect": "relentless_rage"},
+            {"name": "无畏冲锋", "description": "使用近战攻击移动后，首次攻击获得优势", "effect": "aggressive_charge"},
+            {"name": "黑暗视觉", "description": "在黑暗中拥有60英尺视野", "effect": "darkvision_60ft"},
+            {"name": "强力体格", "description": "负重能力翻倍", "effect": "powerful_build"}
+        ],
+        "speed": 30,
+        "languages": ["通用语", "兽人语"],
+        "size": "中型"
+    },
+    {
+        "id": "dragonborn",
+        "name": "龙裔",
+        "name_en": "Dragonborn",
+        "description": "流淌着巨龙血液的古老种族，拥有龙族的力量和吐息武器。",
+        "traits": ["龙族血统", "吐息武器", "威压"],
+        "stat_bonuses": {"strength": 2, "charisma": 1},
+        "racial_abilities": [
+            {"name": "龙族血统", "description": "选择一种龙类获得其元素亲和", "effect": "draconic_heritage"},
+            {"name": "吐息武器", "description": "以动作释放15英尺锥形或30英尺线形的元素吐息（短休后恢复）", "effect": "breath_weapon"},
+            {"name": "元素抗性", "description": "对龙族血统选择的元素类型具有抗性", "effect": "elemental_resistance"},
+            {"name": "威压", "description": "在威吓检定上获得优势", "effect": "dragon_fear"}
+        ],
+        "speed": 30,
+        "languages": ["通用语", "龙语"],
+        "size": "中型"
+    }
+]

@@ -1,0 +1,321 @@
+[
+    {
+        "id": "goblin",
+        "name": "哥布林",
+        "name_en": "Goblin",
+        "description": "矮小狡猾的类人生物，通常在森林和洞穴中成群出现。胆小但数量众多。",
+        "level": 1,
+        "type": "类人生物",
+        "alignment": "混乱邪恶",
+        "armor_class": 13,
+        "hit_points": 12,
+        "hit_dice": "2d6+2",
+        "speed": 30,
+        "stats": {"strength": 8, "dexterity": 14, "constitution": 12, "intelligence": 10, "wisdom": 10, "charisma": 8},
+        "saving_throws": {},
+        "skills": {"潜行": 6},
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {"黑暗视觉": 60},
+        "languages": ["地精语", "通用语"],
+        "challenge_rating": 0.25,
+        "xp": 50,
+        "traits": [
+            {"name": "灵活逃脱", "description": "每回合可以以附赠动作撤离或躲藏"}
+        ],
+        "actions": [
+            {"name": "弯刀", "description": "近战武器攻击", "attack_bonus": 4, "damage": "1d6+2", "damage_type": "挥砍"},
+            {"name": "短弓", "description": "远程武器攻击", "attack_bonus": 4, "range": "80/320", "damage": "1d6+2", "damage_type": "穿刺"}
+        ],
+        "loot": {
+            "gold": "1d4",
+            "items": ["goblin_dagger", "torch"]
+        },
+        "environment": ["森林", "洞穴", "废墟"]
+    },
+    {
+        "id": "skeleton",
+        "name": "骷髅兵",
+        "name_en": "Skeleton",
+        "description": "被亡灵魔法唤醒的不死骸骨，机械地执行着生前的战斗本能。",
+        "level": 1,
+        "type": "不死生物",
+        "alignment": "守序邪恶",
+        "armor_class": 13,
+        "hit_points": 16,
+        "hit_dice": "3d8",
+        "speed": 30,
+        "stats": {"strength": 10, "dexterity": 14, "constitution": 15, "intelligence": 6, "wisdom": 8, "charisma": 5},
+        "saving_throws": {},
+        "skills": {},
+        "damage_resistances": ["穿刺"],
+        "damage_immunities": ["毒素", "暗蚀"],
+        "condition_immunities": ["中毒", "昏睡"],
+        "senses": {"黑暗视觉": 60},
+        "languages": ["理解生前语言但不会说"],
+        "challenge_rating": 0.5,
+        "xp": 100,
+        "traits": [],
+        "actions": [
+            {"name": "锈剑", "description": "近战武器攻击", "attack_bonus": 4, "damage": "1d8+2", "damage_type": "挥砍"},
+            {"name": "短弓", "description": "远程武器攻击", "attack_bonus": 4, "range": "80/320", "damage": "1d6+2", "damage_type": "穿刺"}
+        ],
+        "loot": {
+            "gold": "1d2",
+            "items": ["rusty_sword", "bone_shard"]
+        },
+        "environment": ["地牢", "墓地", "废墟"]
+    },
+    {
+        "id": "wolf",
+        "name": "野狼",
+        "name_en": "Wolf",
+        "description": "森林中的群居掠食者，以其团队协作和追踪能力著称。",
+        "level": 1,
+        "type": "野兽",
+        "alignment": "无阵营",
+        "armor_class": 13,
+        "hit_points": 14,
+        "hit_dice": "2d8+4",
+        "speed": 40,
+        "stats": {"strength": 12, "dexterity": 15, "constitution": 14, "intelligence": 3, "wisdom": 12, "charisma": 6},
+        "saving_throws": {},
+        "skills": {"感知": 5, "潜行": 6},
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {"嗅觉敏锐": 60},
+        "languages": [],
+        "challenge_rating": 0.25,
+        "xp": 50,
+        "traits": [
+            {"name": "包抄", "description": "队友在目标5英尺内时攻击检定获得优势"},
+            {"name": "敏锐嗅觉", "description": "追踪时感知（生存）检定获得优势"}
+        ],
+        "actions": [
+            {"name": "啃咬", "description": "近战武器攻击", "attack_bonus": 5, "damage": "2d4+3", "damage_type": "穿刺", "effect": "力量豁免DC11，失败则被击倒"}
+        ],
+        "loot": {"gold": 0, "items": ["wolf_pelt"]},
+        "environment": ["森林", "山脉", "平原"]
+    },
+    {
+        "id": "bandit",
+        "name": "山贼",
+        "name_en": "Bandit",
+        "description": "拦路抢劫的亡命之徒，装备简陋但数量众多。",
+        "level": 1,
+        "type": "类人生物",
+        "alignment": "混乱邪恶",
+        "armor_class": 12,
+        "hit_points": 18,
+        "hit_dice": "3d8+3",
+        "speed": 30,
+        "stats": {"strength": 13, "dexterity": 12, "constitution": 13, "intelligence": 10, "wisdom": 10, "charisma": 9},
+        "saving_throws": {},
+        "skills": {"威吓": 3, "潜行": 3},
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {},
+        "languages": ["通用语"],
+        "challenge_rating": 0.5,
+        "xp": 100,
+        "traits": [],
+        "actions": [
+            {"name": "弯刀", "description": "近战武器攻击", "attack_bonus": 4, "damage": "1d6+2", "damage_type": "挥砍"},
+            {"name": "轻弩", "description": "远程武器攻击", "attack_bonus": 4, "range": "80/320", "damage": "1d8+2", "damage_type": "穿刺"}
+        ],
+        "loot": {
+            "gold": "2d6",
+            "items": ["scimitar", "torch", "rope"]
+        },
+        "environment": ["道路", "野外", "城镇外"]
+    },
+    {
+        "id": "giant_spider",
+        "name": "巨型蜘蛛",
+        "name_en": "Giant Spider",
+        "description": "比马还大的魔化蜘蛛，潜伏在黑暗洞穴中，用蛛网和毒液捕猎。",
+        "level": 2,
+        "type": "野兽",
+        "alignment": "无阵营",
+        "armor_class": 14,
+        "hit_points": 32,
+        "hit_dice": "5d10+5",
+        "speed": 30,
+        "stats": {"strength": 14, "dexterity": 16, "constitution": 13, "intelligence": 2, "wisdom": 12, "charisma": 4},
+        "saving_throws": {},
+        "skills": {"潜行": 9, "感知": 5},
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {"黑暗视觉": 60, "震颤感知": 60},
+        "languages": [],
+        "challenge_rating": 1,
+        "xp": 200,
+        "traits": [
+            {"name": "蜘蛛攀爬", "description": "可以在垂直表面和天花板攀爬"},
+            {"name": "蛛网感知", "description": "接触蛛网时知道网内所有生物位置"},
+            {"name": "蛛网行走", "description": "无视蛛网的移动限制"}
+        ],
+        "actions": [
+            {"name": "啃咬", "description": "近战武器攻击", "attack_bonus": 5, "damage": "1d8+3", "damage_type": "穿刺", "effect": "体质豁免DC11，失败中毒1小时"},
+            {"name": "蛛网", "description": "远程武器攻击", "attack_bonus": 5, "range": "30/60", "damage": "0", "damage_type": "", "effect": "力量豁免DC12，失败被束缚"}
+        ],
+        "loot": {
+            "gold": "1d4",
+            "items": ["spider_silk", "venom_gland"]
+        },
+        "environment": ["洞穴", "森林", "废墟"]
+    },
+    {
+        "id": "shadow",
+        "name": "暗影",
+        "name_en": "Shadow",
+        "description": "由纯粹负能量构成的阴影生物，在黑暗中潜伏，吸取活物的力量。",
+        "level": 3,
+        "type": "不死生物",
+        "alignment": "混乱邪恶",
+        "armor_class": 14,
+        "hit_points": 28,
+        "hit_dice": "5d8+5",
+        "speed": 40,
+        "stats": {"strength": 6, "dexterity": 16, "constitution": 13, "intelligence": 6, "wisdom": 10, "charisma": 8},
+        "saving_throws": {},
+        "skills": {"潜行": 9, "隐匿": 8},
+        "damage_resistances": ["强酸", "冷冻", "火焰", "闪电", "雷鸣", "非魔法的穿刺/挥砍/钝击"],
+        "damage_immunities": ["暗蚀", "毒素"],
+        "condition_immunities": ["中毒", "惊慌", "麻痹", "石化", "昏睡"],
+        "senses": {"黑暗视觉": 120},
+        "languages": [],
+        "challenge_rating": 2,
+        "xp": 450,
+        "traits": [
+            {"name": "暗影潜藏", "description": "弱光或黑暗中可以尝试躲藏"},
+            {"name": "阳光敏感", "description": "阳光下攻击检定有劣势"}
+        ],
+        "actions": [
+            {"name": "力量吸取", "description": "近战武器攻击", "attack_bonus": 6, "damage": "2d6+3", "damage_type": "暗蚀", "effect": "目标力量降低1d4，如果力量归零则死亡"}
+        ],
+        "loot": {"gold": 0, "items": ["shadow_essence"]},
+        "environment": ["地牢", "废墟", "墓地"]
+    },
+    {
+        "id": "troll",
+        "name": "巨魔",
+        "name_en": "Troll",
+        "description": "丑陋而凶猛的巨兽，拥有惊人的再生能力。即使被砍断肢体也能重新长出来。",
+        "level": 5,
+        "type": "巨人",
+        "alignment": "混乱邪恶",
+        "armor_class": 15,
+        "hit_points": 84,
+        "hit_dice": "8d10+40",
+        "speed": 30,
+        "stats": {"strength": 18, "dexterity": 13, "constitution": 20, "intelligence": 7, "wisdom": 9, "charisma": 7},
+        "saving_throws": {},
+        "skills": {"感知": 5},
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {"黑暗视觉": 60, "嗅觉敏锐": 30},
+        "languages": ["巨人语"],
+        "challenge_rating": 5,
+        "xp": 1800,
+        "traits": [
+            {"name": "再生", "description": "回合开始时恢复10生命值，被火焰或强酸伤害后此回合不生效"},
+            {"name": "断肢战斗", "description": "失去肢体仍可战斗，断肢会继续���动"}
+        ],
+        "actions": [
+            {"name": "多重攻击", "description": "进行一次啃咬和两次爪击"},
+            {"name": "啃咬", "description": "近战武器攻击", "attack_bonus": 7, "damage": "1d8+4", "damage_type": "穿刺"},
+            {"name": "爪击", "description": "近战武器攻击", "attack_bonus": 7, "damage": "2d6+4", "damage_type": "挥砍"}
+        ],
+        "loot": {
+            "gold": "3d10",
+            "items": ["troll_blood", "large_bone"]
+        },
+        "environment": ["森林", "山脉", "桥梁"]
+    },
+    {
+        "id": "young_dragon_red",
+        "name": "幼年红龙",
+        "name_en": "Young Red Dragon",
+        "description": "虽然年幼，但已经拥有可怕的破坏力。鳞片如熔岩般赤红，口中的火焰可以融化钢铁。",
+        "level": 8,
+        "type": "龙类",
+        "alignment": "混乱邪恶",
+        "armor_class": 18,
+        "hit_points": 142,
+        "hit_dice": "15d10+60",
+        "speed": 40,
+        "stats": {"strength": 23, "dexterity": 10, "constitution": 19, "intelligence": 14, "wisdom": 11, "charisma": 19},
+        "saving_throws": {"dexterity": 5, "constitution": 9, "wisdom": 5, "charisma": 9},
+        "skills": {"感知": 9, "潜行": 4},
+        "damage_resistances": [],
+        "damage_immunities": ["火焰"],
+        "condition_immunities": [],
+        "senses": {"黑暗视觉": 120, "盲视": 30},
+        "languages": ["通用语", "龙语"],
+        "challenge_rating": 10,
+        "xp": 5900,
+        "traits": [
+            {"name": "龙族威压", "description": "靠近时使敌人惊慌（意志豁免DC17）"}
+        ],
+        "actions": [
+            {"name": "多重攻击", "description": "进行一次啃咬和两次爪击"},
+            {"name": "啃咬", "description": "近战武器攻击", "attack_bonus": 10, "damage": "2d10+6", "damage_type": "穿刺"},
+            {"name": "爪击", "description": "近战武器攻击", "attack_bonus": 10, "damage": "2d6+6", "damage_type": "挥砍"},
+            {"name": "火焰吐息", "description": "30英尺锥形", "attack_bonus": 0, "damage": "14d6", "damage_type": "火焰", "save_dc": 17, "save_stat": "dexterity", "cooldown": "recharge_5_6"}
+        ],
+        "loot": {
+            "gold": "4d12*100",
+            "items": ["red_dragon_scale", "dragon_heart", "dragon_hoard"]
+        },
+        "environment": ["山脉", "火山", "洞穴"]
+    },
+    {
+        "id": "lich",
+        "name": "巫妖",
+        "name_en": "Lich",
+        "description": "追求永恒生命的强大施法者，以灵魂容器（命匣）换取不死之身。精通毁灭性魔法。",
+        "level": 12,
+        "type": "不死生物",
+        "alignment": "混乱邪恶",
+        "armor_class": 17,
+        "hit_points": 165,
+        "hit_dice": "22d8+66",
+        "speed": 30,
+        "stats": {"strength": 11, "dexterity": 16, "constitution": 16, "intelligence": 20, "wisdom": 14, "charisma": 16},
+        "saving_throws": {"constitution": 10, "intelligence": 12, "wisdom": 9},
+        "skills": {"奥秘": 18, "历史": 18, "洞察": 9, "察觉": 9},
+        "damage_resistances": ["冷冻", "闪电", "暗蚀"],
+        "damage_immunities": ["毒素", "钝击/穿刺/挥砍（非魔法）"],
+        "condition_immunities": ["中毒", "惊慌", "麻痹", "石化", "昏睡", "魅惑"],
+        "senses": {"真实视野": 120},
+        "languages": ["通用语", "龙语", "精灵语", "深渊语"],
+        "challenge_rating": 15,
+        "xp": 13000,
+        "traits": [
+            {"name": "命匣", "description": "巫妖被摧毁后1d10天在命匣处重生"},
+            {"name": "法术抗性", "description": "法术攻击对巫妖有劣势"},
+            {"name": "传奇抗性", "description": "每日3次，豁免失败可改为成功"}
+        ],
+        "actions": [
+            {"name": "腐化之触", "description": "近战法术攻击", "attack_bonus": 12, "damage": "3d6+6", "damage_type": "暗蚀"},
+            {"name": "恐惧光环", "description": "意志豁免DC18，失败惊慌1分钟"},
+            {"name": "死亡一指", "description": "远程法术攻击", "attack_bonus": 12, "damage": "7d8+4", "damage_type": "暗蚀"}
+        ],
+        "spells": [
+            {"name": "火球术", "level": 3, "description": "20英尺半径范围，8d6火焰伤害"},
+            {"name": "连环闪电", "level": 6, "description": "最多3个目标，10d8闪电伤害"},
+            {"name": "凋死术", "level": 8, "description": "100英尺范围内，8d8+20暗蚀伤害"}
+        ],
+        "loot": {
+            "gold": "5d12*100",
+            "items": ["lich_phylactery", "spellbook_ancient", "staff_of_power"]
+        },
+        "environment": ["地牢", "塔楼", "墓地"]
+    }
+]

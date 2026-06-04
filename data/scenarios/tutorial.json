@@ -1,0 +1,383 @@
+{
+    "id": "tutorial",
+    "name": "初心者之旅",
+    "name_en": "Beginner's Journey",
+    "description": "新手冒险教程，引导玩家熟悉基本的游戏机制。从宁静的橡木镇出发，探索附近的迷雾森林。",
+    "difficulty": "简单",
+    "recommended_level": 1,
+    "party_size": "1-4",
+    "estimated_duration": "1-2小时",
+    "background": "橡木镇最近感受到了来自迷雾森林的异变。附近的野兽变得暴躁，森林中传来奇怪的声音。村长请求冒险者调查此事。",
+    "scenes": [
+        {
+            "id": "scene_001",
+            "name": "橡木镇的召唤",
+            "type": "dialogue",
+            "description": "你站在橡木镇的广场上，村民们好奇地看着你这个陌生面孔。镇长从市政厅快步走出，脸上带着愁容。",
+            "npcs": [
+                {
+                    "id": "mayor",
+                    "name": "哈罗德镇长",
+                    "description": "头发花白的老者，眼神中透着忧虑但带着希望",
+                    "dialogue": {
+                        "greeting": "感谢神明！终于有冒险者来了！",
+                        "quest_offer": "最近森林里出了怪事。野兽变得异常凶猛，甚至攻击了镇上的猎人。我们需要勇敢的人去看看究竟发生了什么。",
+                        "reward": "我们会准备50金币作为报酬，另外镇上的铁匠愿意为你免费打造一件装备。"
+                    }
+                }
+            ],
+            "choices": [
+                {"text": "接受任务，前往迷雾森林", "next_scene": "scene_002", "action": "quest_accept"},
+                {"text": "拒绝并离开小镇", "next_scene": "scene_end", "action": "leave_town"},
+                {"text": "先打听更多关于森林的情报", "next_scene": "scene_001a", "action": "gather_info"}
+            ]
+        },
+        {
+            "id": "scene_001a",
+            "name": "情报收集",
+            "type": "exploration",
+            "description": "你在镇上四处打听，从酒馆老板娘那里得知森林深处曾经有一座古庙，最近晚上能听到庙里传出诡异的蓝光。猎人老王说那些发狂的野兽身上都有轻微的暗蚀痕迹。",
+            "choices": [
+                {"text": "准备妥当后前往迷雾森林", "next_scene": "scene_002", "action": "proceed"},
+                {"text": "去铁匠铺补充装备", "next_scene": "scene_001b", "action": "visit_blacksmith"}
+            ]
+        },
+        {
+            "id": "scene_001b",
+            "name": "铁匠铺",
+            "type": "exploration",
+            "description": "铁匠是个壮实的矮人工匠，正在叮叮当当敲打一块铁胚。看到你进来，他放下锤子。",
+            "npcs": [
+                {
+                    "id": "blacksmith",
+                    "name": "铁匠布罗尼",
+                    "description": "满身肌肉的矮人铁匠，胡须和围裙上满是铁屑",
+                    "dialogue": {
+                        "greeting": "冒险者？呵，你这身装备可不够看！",
+                        "offer": "我这有把不错的铁剑，算你便宜点——10金币。或者你可以花5金币买一套皮甲。"
+                    }
+                }
+            ],
+            "choices": [
+                {"text": "购买铁剑 (10金币)", "next_scene": "scene_002", "action": "buy_sword", "condition": "gold>=10"},
+                {"text": "购买皮甲 (5金币)", "next_scene": "scene_002", "action": "buy_armor", "condition": "gold>=5"},
+                {"text": "不买，直接前往森林", "next_scene": "scene_002", "action": "decline"}
+            ]
+        },
+        {
+            "id": "scene_002",
+            "name": "迷雾森林入口",
+            "type": "exploration",
+            "description": "森林边缘弥漫着灰色的雾气，树木扭曲变形，地上的植被呈现出不自然的暗紫色。一条小路蜿蜒深入林中，你能听到远处传来低沉的咆哮声。",
+            "environment": {
+                "weather": "薄雾",
+                "time": "下午",
+                "light": "昏暗"
+            },
+            "choices": [
+                {"text": "沿着小路谨慎前进", "next_scene": "scene_003", "action": "walk_path"},
+                {"text": "离开主路，尝试穿过灌木丛", "next_scene": "scene_003a", "action": "bushwhack"},
+                {"text": "大声喊叫，试图引出什么东西", "next_scene": "scene_003b", "action": "shout"}
+            ],
+            "possible_encounters": ["goblin"]
+        },
+        {
+            "id": "scene_003",
+            "name": "遭遇哥布林",
+            "type": "combat",
+            "description": "沿着小路走了一段后，你听到灌木丛中有动静。三只绿皮肤的哥布林突然跳出来，挥舞着简陋的武器挡住了你的去路！",
+            "enemies": ["goblin", "goblin", "goblin"],
+            "enemy_count": 3,
+            "environment": {
+                "terrain": "树林",
+                "cover_options": ["树木", "岩石"]
+            },
+            "on_victory": {
+                "next_scene": "scene_004",
+                "xp": 150,
+                "loot_description": "哥布林身��没什么好东西，但你找到了一把生锈的钥匙。"
+            },
+            "on_defeat": {
+                "next_scene": "scene_defeat",
+                "description": "你被打败了，意识逐渐模糊..."
+            },
+            "choices": []
+        },
+        {
+            "id": "scene_003a",
+            "name": "密林穿行",
+            "type": "exploration",
+            "description": "你在茂密的灌木丛中穿行，虽然划伤了手臂，但你发现了一条通往一座古老遗迹的捷径。入口处刻着奇怪的符文。",
+            "choices": [
+                {"text": "探索遗迹入口", "next_scene": "scene_005", "action": "explore_ruins"},
+                {"text": "返回主路", "next_scene": "scene_003", "action": "back_to_path"}
+            ],
+            "skill_check": {
+                "skill": "生存",
+                "dc": 10,
+                "success_scene": "scene_005",
+                "failure_scene": "scene_003",
+                "success_text": "你凭借敏锐的野外生存技能，安全穿过了密林！",
+                "failure_text": "你不小心踩进了一个泥坑，只好退回主路。"
+            }
+        },
+        {
+            "id": "scene_003b",
+            "name": "引来了麻烦",
+            "type": "combat",
+            "description": "你的喊声在森林中回荡...很快你听到了沉重的脚步声。一只巨大的野猪从雾中冲出，愤怒地朝你冲来！",
+            "enemies": ["giant_boar"],
+            "enemy_count": 1,
+            "environment": {
+                "terrain": "森林空地",
+                "cover_options": ["大树"]
+            },
+            "on_victory": {
+                "next_scene": "scene_004",
+                "xp": 100,
+                "loot_description": "野猪肉可以用来做烤肉，獠牙可以卖钱。"
+            },
+            "on_defeat": {
+                "next_scene": "scene_defeat",
+                "description": "你被打败了..."
+            }
+        },
+        {
+            "id": "scene_004",
+            "name": "森林深处",
+            "type": "exploration",
+            "description": "继续深入森林，雾气越来越浓。你发现了一座被藤蔓覆盖的古庙，门前有两尊石像。古庙的大门紧闭，但你注意到门上有一个钥匙孔。",
+            "choices": [
+                {"text": "使用哥布林身上找到的钥匙开门", "next_scene": "scene_005", "action": "use_key", "condition": "has_item=rusty_key"},
+                {"text": "强行推门（力量检定）", "next_scene": "scene_005", "action": "force_door"},
+                {"text": "搜索古庙周围", "next_scene": "scene_004a", "action": "search_perimeter"},
+                {"text": "回到镇上报告", "next_scene": "scene_town", "action": "report_back"}
+            ],
+            "skill_check_force_door": {
+                "skill": "力量",
+                "dc": 15,
+                "success_text": "你用力一推，大门轰然打开！",
+                "failure_text": "门纹丝不动，看来需要钥匙。"
+            }
+        },
+        {
+            "id": "scene_004a",
+            "name": "庙外勘察",
+            "type": "exploration",
+            "description": "你在古庙周围仔细搜索，发现了一处被灌木掩盖的侧门。侧门上刻着一行字：\"唯有勇气者方能通过\"。",
+            "choices": [
+                {"text": "推门进入", "next_scene": "scene_005", "action": "enter_side"},
+                {"text": "返回正门", "next_scene": "scene_004", "action": "return_front"}
+            ]
+        },
+        {
+            "id": "scene_005",
+            "name": "古庙大厅",
+            "type": "exploration",
+            "description": "古庙内部比想象中更加宏大。大厅中央悬浮着一颗发出诡异蓝光的晶体，光脉如藤蔓般从晶体延伸到四周。周围的墙壁上绘着古老的壁画，描绘了一群人对抗暗影生物的场面。一个穿着破旧长袍的人影背对你站在晶体前。",
+            "npcs": [
+                {
+                    "id": "mysterious_figure",
+                    "name": "神秘人",
+                    "description": "身材消瘦，长袍破旧但不掩其高贵气质，声音低沉而有磁性",
+                    "dialogue": {
+                        "greeting": "你终于来了...我没有多少时间了。",
+                        "explanation": "我是法师塔里的守卫者。三周前，我们试图封印一件古老的黑暗法器，但仪式失败了。我的同伴们都...消失了。这颗水晶正在吸收森林的生命力，一旦充满力量，黑暗就会蔓延出森林。",
+                        "plea": "你必须摧毁它。但光靠武器不行——你需要先破坏四个角落的结界石。",
+                        "warning": "小心！法力波动触发了防禦机制——不死生物苏醒了！"
+                    }
+                }
+            ],
+            "choices": [
+                {"text": "帮助守卫者破坏结界石", "next_scene": "scene_006", "action": "help"},
+                {"text": "攻击神秘人（你怀疑他是幕后黑手）", "next_scene": "scene_005b", "action": "attack"},
+                {"text": "询问更多关于黑暗法器的信息", "next_scene": "scene_005a", "action": "ask_more"}
+            ]
+        },
+        {
+            "id": "scene_005a",
+            "name": "黑暗法器的真相",
+            "type": "dialogue",
+            "description": "守卫者叹了口气，缓缓道来：\"那件法器名为'暗影核心'，据说是远古时期一位堕落的法师王制造的。我们法师塔花了十年才找到它的位置，但低估了它的力量。\"",
+            "choices": [
+                {"text": "了解如何摧毁暗影核心", "next_scene": "scene_006", "action": "learn_destroy"},
+                {"text": "准备战斗", "next_scene": "scene_006", "action": "prepare_fight"}
+            ]
+        },
+        {
+            "id": "scene_005b",
+            "name": "突如其来的战斗",
+            "type": "combat",
+            "description": "你冲向神秘人，但他只是微微一笑，身形化作一团黑雾消散。三只骷髅兵从地面破土而出！",
+            "enemies": ["skeleton", "skeleton", "skeleton"],
+            "enemy_count": 3,
+            "on_victory": {
+                "next_scene": "scene_006a",
+                "xp": 300,
+                "loot_description": "骷髅碎裂后，你发现地上有一本法术书。"
+            },
+            "on_defeat": {
+                "next_scene": "scene_defeat",
+                "description": "你倒下了..."
+            }
+        },
+        {
+            "id": "scene_006",
+            "name": "结界石守卫",
+            "type": "combat",
+            "description": "你来到古庙的东侧，找到了第一块结界石。但守护它的是两只暗影生物，它们从阴影中扑向你！",
+            "enemies": ["shadow", "shadow"],
+            "enemy_count": 2,
+            "environment": {
+                "terrain": "古庙密室",
+                "light": "黑暗"
+            },
+            "on_victory": {
+                "next_scene": "scene_007",
+                "xp": 450,
+                "loot_description": "暗影消散后，结界石开始龟裂。空气中弥漫的能量似乎减弱了。"
+            },
+            "on_defeat": {
+                "next_scene": "scene_defeat",
+                "description": "暗影的能量吞噬了你..."
+            }
+        },
+        {
+            "id": "scene_006a",
+            "name": "真相大白",
+            "type": "dialogue",
+            "description": "击败骷髅后，神秘人的虚影重新凝聚。\"好身手！但我确实不是敌人——请相信我。\"他将一枚符文石交给你，\"这是破坏结界石的关键，拿着它去吧。\"",
+            "choices": [
+                {"text": "接受符文石，前往结界石", "next_scene": "scene_006", "action": "accept_rune"},
+                {"text": "仍然怀疑，直接去中央水晶", "next_scene": "scene_008", "action": "rush_crystal"}
+            ],
+            "items_gained": [
+                {"id": "rune_stone", "name": "符文石", "description": "刻满铭文的奇特石头，似乎蕴含着破魔之力", "quantity": 1}
+            ]
+        },
+        {
+            "id": "scene_007",
+            "name": "结界石被毁",
+            "type": "exploration",
+            "description": "符文石接触到结界石的瞬间发出耀眼的光芒！结界石表面出现裂痕，随着一声巨响，它轰然碎裂。中央水晶的光芒明显变暗了。剩下的三个结界石也逐一被毁...",
+            "choices": [
+                {"text": "回到中央大厅面对暗影核心", "next_scene": "scene_008", "action": "return_center"}
+            ]
+        },
+        {
+            "id": "scene_008",
+            "name": "最终对决",
+            "type": "combat",
+            "description": "回到中央大厅，暗影核心已经完全显现——它浮在空中，散发着令人窒息的黑暗能量。守卫者正在用最后的法术抵抗它，但显然力不从心。\"快！趁现在！\"暗影核心伸出无数能量触手，战斗开始了！",
+            "enemies": ["shadow_core"],
+            "enemy_count": 1,
+            "environment": {
+                "terrain": "古庙大厅",
+                "special": "战斗进行3回合后，守卫者会释放一个辅助法术，削弱暗影核心"
+            },
+            "boss": {
+                "name": "暗影核心",
+                "armor_class": 16,
+                "hit_points": 80,
+                "stats": {"strength": 10, "dexterity": 12, "constitution": 16, "intelligence": 18, "wisdom": 14, "charisma": 16},
+                "actions": [
+                    {"name": "暗影触手", "damage": "2d8+3", "type": "暗蚀", "description": "3条触手同时攻击"},
+                    {"name": "能量爆发", "damage": "3d10", "type": "暗蚀", "description": "范围攻击，全体意志豁免DC15"}
+                ],
+                "loot": {
+                    "xp": 1000,
+                    "gold": "5d12",
+                    "items": ["shadow_core_shard", "guardian_amulet"]
+                }
+            },
+            "on_victory": {
+                "next_scene": "scene_009",
+                "xp": 1000,
+                "loot_description": "暗影核心发出刺耳的尖啸，然后碎裂成无数片。黑暗能量消散，水晶恢复了纯净的光芒。你感到森林的生命力正在恢复。"
+            },
+            "on_defeat": {
+                "next_scene": "scene_defeat",
+                "description": "黑暗吞噬了一切..."
+            }
+        },
+        {
+            "id": "scene_009",
+            "name": "英雄凯旋",
+            "type": "dialogue",
+            "description": "大厅的蓝光逐渐平息，转而散发出温暖的金色光芒。守卫者蹒跚走向你，脸上带着欣慰的笑容。\"你做到了...橡木镇安全了。\"他从怀中掏出一枚徽章。\"这是我们法师塔的荣誉徽章，你值得拥有它。\"",
+            "npcs": [
+                {
+                    "id": "guardian_victory",
+                    "name": "守卫者",
+                    "description": "虽然疲惫不堪但眼中充满了光芒",
+                    "dialogue": {
+                        "farewell": "我该回法师塔复命了。如果你有兴趣，法师塔随时欢迎你。愿魔法与你同在！",
+                        "reward": "除了佣金外，这枚护身符也会给你带来好运。"
+                    }
+                }
+            ],
+            "quest_complete": true,
+            "rewards": {
+                "xp": 500,
+                "gold": 200,
+                "items": ["honor_badge", "guardian_amulet"]
+            },
+            "choices": [
+                {"text": "返回橡木镇领取报���", "next_scene": "scene_010", "action": "return_town"}
+            ]
+        },
+        {
+            "id": "scene_010",
+            "name": "凯旋归镇",
+            "type": "dialogue",
+            "description": "你回到橡木镇时，整个小镇都沸腾了！镇长亲自在镇门口迎接，村民们欢唿雀跃。森林的异变已经消失，一切恢复了正常。",
+            "npcs": [
+                {
+                    "id": "mayor_end",
+                    "name": "哈罗德镇长",
+                    "description": "脸上洋溢着喜悦，老泪纵横",
+                    "dialogue": {
+                        "celebration": "英雄！你是我们橡木镇的大英雄！这是说好的报酬，还有额外的一点心意。今晚全镇为你举办宴会！",
+                        "invitation": "如果你愿意留在橡木镇，我们永远欢迎你。但如果你的征途是更远大的冒险——我们也为你祝福。"
+                    }
+                }
+            ],
+            "rewards": {
+                "xp": 300,
+                "gold": 100
+            },
+            "choices": [
+                {"text": "接受宴会的邀请", "next_scene": "scene_end", "action": "party"},
+                {"text": "告别小镇，继续冒险", "next_scene": "scene_end", "action": "continue_adventure"}
+            ]
+        },
+        {
+            "id": "scene_end",
+            "name": "冒险结束",
+            "type": "ending",
+            "description": "你的第一次冒险圆满结束了！橡木镇恢复了宁静，你获得了宝贵的经验和战利品。但这个世界还有很多未知的角落等待你去探索...",
+            "ending": true
+        },
+        {
+            "id": "scene_town",
+            "name": "回到橡木镇",
+            "type": "dialogue",
+            "description": "你回到橡木镇，发现镇上似乎被一层淡淡的阴影笼罩。镇长见到你回来先是大喜，但听说森林深处有古庙后露出了沉思的表情。",
+            "choices": [
+                {"text": "说服镇长组织猎魔队一同前往", "next_scene": "scene_002", "action": "rally"},
+                {"text": "休息一晚再出发", "next_scene": "scene_002", "action": "rest"},
+                {"text": "放弃任务", "next_scene": "scene_end", "action": "quit"}
+            ]
+        },
+        {
+            "id": "scene_defeat",
+            "name": "落败",
+            "type": "ending",
+            "description": "你的冒险在此结束了...但等等，似乎还有一线生机。你感觉有人在拖拽你的身体，耳边传来模糊的呼唤声...",
+            "choices": [
+                {"text": "重新开始（从第一幕开始）", "next_scene": "scene_001", "action": "retry"}
+            ],
+            "ending": true
+        }
+    ]
+}
